@@ -1,13 +1,10 @@
 import state from "./state";
 
 export default {
-  snackbar: state => {
-    return state.snackbar;
+  loginInfo: state => {
+    return state.loginInfo;
   },
-  navigation: state => {
-    return state.navigation;
-  },
-  userInfo: state => {
-    return state.userInfo;
+  industryInfo: state => {
+    return state.industryInfo;
   }
 }

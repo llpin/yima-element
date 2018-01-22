@@ -2,7 +2,7 @@
   <el-container direction="vertical">
     <el-row>
       <el-col :span="12" :offset="6">
-        Firmuser 商户使用者端
+        Notarization 认证系统端
         <el-form :model="loginForm" status-icon :rules="rules" ref="loginForm" label-width="100px">
           <el-form-item label="账号" prop="username">
             <el-input v-model="loginForm.username" auto-complete="auto-complete"></el-input>
@@ -24,7 +24,7 @@
 import $user from "../api/user";
 import { HTTP_RESPONSE_SUCCESS } from "../api/result-codes";
 export default {
-  name: "FirmuserLogin",
+  name: "SellerLogin",
   data() {
     return {
       loginForm: {

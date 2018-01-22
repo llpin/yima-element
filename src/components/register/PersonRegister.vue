@@ -1,12 +1,12 @@
 <template>
-    <div>
-      setting
-    </div>
+  <div>
+    person
+  </div>
 </template>
 
 <script>
   export default {
-    name: "setting"
+    name: "person-register"
   }
 </script>
 

@@ -1,9 +1,11 @@
-import * as ResultCodes from '../api/result-codes'
 
 export default {
 
-  userInfoSet(state, user) {
-    state.userInfo = user;
-  }
+  loginInfoSet(state, info) {
+    state.loginInfo = info;
+  },
 
+  industryInfoSet(state, info) {
+    state.industryInfo = info;
+  }
 }

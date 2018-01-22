@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    Firmbase Home
+    Law Home
   </el-container>
 </template>
 
@@ -8,7 +8,7 @@
 import $user from "../api/user";
 import { HTTP_RESPONSE_SUCCESS } from "../api/result-codes";
 export default {
-  name: "FirmbaseHome",
+  name: "LawHome",
   data() {
     return {};
   },

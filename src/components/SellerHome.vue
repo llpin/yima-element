@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    Citizen Home
+    Seller Home
   </el-container>
 </template>
 
@@ -8,7 +8,7 @@
 import $user from "../api/user";
 import { HTTP_RESPONSE_SUCCESS } from "../api/result-codes";
 export default {
-  name: "CitizenHome",
+  name: "SellerHome",
   data() {
     return {};
   },

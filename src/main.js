@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store/index'
 
 // element start
 import ElementUI from 'element-ui'
@@ -13,10 +14,20 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
+//filter
+Vue.filter('isSystemFilter', function(en) {
+  if(en){
+    return "系统角色"
+  }else {
+    return "用户角色"
+  }
+});
+
 /* eslint-disable no-new */
-new Vue({
+window.$AppMain = new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

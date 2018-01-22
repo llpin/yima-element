@@ -1,7 +1,11 @@
 export default {
 
-  userInfo: {
+  loginInfo: {
     username: ""
-  }
+  },
+
+  industryInfo:{
+
+  },
 
 }

@@ -2,9 +2,18 @@
   <el-container style="height: 100vh; border: 1px solid #eee">
     <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
       <el-menu
-        default-active="0">
-        <el-menu-item index="0">用户</el-menu-item>
-        <el-menu-item index="1">设置</el-menu-item>
+        default-active="/center/home/user/view"
+        router>
+        <el-submenu index="/center/home/user/view">
+          <template slot="title">
+            <span>用户管理</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="/center/home/user/view">查询</el-menu-item>
+            <el-menu-item index="/center/home/user/adding">添加</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-menu-item index="/center/home/role">权限管理</el-menu-item>
       </el-menu>
     </el-aside>
 
@@ -34,21 +43,21 @@
 <script>
   import $user from "../api/user";
   import {HTTP_RESPONSE_SUCCESS} from "../api/result-codes";
-  import CenterUserMainTabs from "./center/tabs/CenterUserMainTabs";
 
   export default {
     components: {
-      CenterUserMainTabs
     },
-    name: "CitizenHome",
+    name: "CenterHome",
     data() {
-      const item = {
-        date: "2016-05-02",
-        name: "王小虎",
-        address: "上海市普陀区金沙江路 1518 弄"
-      };
       return {
-        tableData: Array(20).fill(item)
+        routes:{
+          user:{
+
+          },
+          role:{
+
+          }
+        }
       };
     },
     methods: {},

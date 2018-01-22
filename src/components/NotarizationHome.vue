@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    Firmuser Home
+    Notarization Home
   </el-container>
 </template>
 
@@ -8,7 +8,7 @@
 import $user from "../api/user";
 import { HTTP_RESPONSE_SUCCESS } from "../api/result-codes";
 export default {
-  name: "FirmuserHome",
+  name: "SellerHome",
   data() {
     return {};
   },

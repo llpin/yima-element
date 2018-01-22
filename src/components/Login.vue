@@ -2,8 +2,8 @@
   <el-container direction="vertical">
     <el-row>
       <el-col :span="12" :offset="6">
-        Citizen 消费者端
-        <el-form :model="loginForm" status-icon :rules="rules" ref="loginForm" label-width="100px">     
+        {{ industryInfo.description }}
+        <el-form :model="loginForm" status-icon :rules="rules" ref="loginForm" label-width="100px">
           <el-form-item label="账号" prop="username">
             <el-input v-model="loginForm.username" auto-complete="auto-complete"></el-input>
           </el-form-item>
@@ -22,9 +22,11 @@
 
 <script>
 import $user from "../api/user";
+import $profile from "../api/profile"
+import $util from "../api/util"
 import { HTTP_RESPONSE_SUCCESS } from "../api/result-codes";
 export default {
-  name: "CitizenLogin",
+  name: "Login",
   data() {
     return {
       loginForm: {
@@ -40,7 +42,8 @@ export default {
           { required: true, message: "请输入密码", trigger: "blur" },
           { min: 3, max: 12, message: "长度在 3 到 12 个字符", trigger: "blur" }
         ]
-      }
+      },
+      industryInfo:this.$store.getters.industryInfo,
     };
   },
   methods: {
@@ -71,13 +74,21 @@ export default {
         })
         .then(function({ data }) {
           console.log("login....", data);
-
+          self.$message(data.message);
           if (data.code === HTTP_RESPONSE_SUCCESS) {
             console.log("login ok");
+            console.log(data.loginInfo);
+            $profile.setLoginInfo(data.loginInfo);
+            console.log("redirection", data.redirection);
             self.$router.push(data.redirection);
           }
         });
     }
+  },
+  mounted(){
+    var industryInfo = this.$store.getters.industryInfo;
+    this.industryInfo = $util.isEmpty(industryInfo) ? $profile.getIndustryInfo() : industryInfo;
+    console.log(this.industryInfo);
   }
 };
 </script>
