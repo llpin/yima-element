@@ -1,4 +1,7 @@
 export default {
+  getApiHost(){
+    return process.env.API_HOST;
+  },
 
   getLoginInfo() {
     return this.parse(window.sessionStorage.getItem("$loginInfo"));

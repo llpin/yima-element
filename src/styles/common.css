@@ -91,5 +91,19 @@
   margin: 12px;
 }
 
+.el-header {
+  background-color: #b3c0d1;
+  color: #333;
+  line-height: 60px;
+}
+
+.el-aside {
+  color: #333;
+  background-color: rgb(238, 241, 246)
+}
+
+.main-container {
+  height: 100vh; border: 1px solid #eee
+}
 
 

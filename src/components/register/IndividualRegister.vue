@@ -49,23 +49,17 @@
       </el-form-item>
 
       <form-input-item
-        label="企业名称"
-        prop="loginInfo.enterpriseProfile.name"
-        v-model="form.loginInfo.enterpriseProfile.name">
-      </form-input-item>
-
-      <form-input-item
-        label="企业法人"
-        prop="loginInfo.enterpriseProfile.representative"
-        v-model="form.loginInfo.enterpriseProfile.representative">
+        label="姓名"
+        prop="loginInfo.individualProfile.name"
+        v-model="form.loginInfo.individualProfile.name">
       </form-input-item>
 
       <el-form-item
-        label="所属行业"
-        prop="loginInfo.enterpriseProfile.subIndustryEntity.id">
+        label="从事行业"
+        prop="loginInfo.individualProfile.subIndustryEntity.id">
         <el-select
-          v-model="form.loginInfo.enterpriseProfile.subIndustryEntity.id"
-          placeholder="请选择所属行业">
+          v-model="form.loginInfo.individualProfile.subIndustryEntity.id"
+          placeholder="请选择从事行业">
           <el-option
             v-for="item in subIndustryEntities"
             :key="item.id"
@@ -77,54 +71,52 @@
         </el-select>
       </el-form-item>
 
+      <!--<form-input-item-->
+        <!--label="性别"-->
+        <!--prop="loginInfo.individualProfile.gender"-->
+        <!--v-model="form.loginInfo.individualProfile.gender">-->
+      <!--</form-input-item>-->
+
+      <el-form-item
+        label="性别"
+        prop="loginInfo.individualProfile.gender">
+        <el-select
+          v-model="form.loginInfo.individualProfile.gender"
+          placeholder="请选择性别">
+          <el-option
+            v-for="item in genderEnums"
+            :key="item.code"
+            :label="item.name"
+            :value="item.code">
+            <span class="float-left">{{ item.description }}</span>
+            <span class="float-right">{{ item.name }}</span>
+          </el-option>
+        </el-select>
+      </el-form-item>
+
       <form-input-item
         label="手机号"
-        prop="loginInfo.enterpriseProfile.telephone"
-        v-model="form.loginInfo.enterpriseProfile.telephone">
+        prop="loginInfo.individualProfile.telephone"
+        v-model="form.loginInfo.individualProfile.telephone">
       </form-input-item>
 
       <form-input-item
         label="电话"
-        prop="loginInfo.enterpriseProfile.phone"
-        v-model="form.loginInfo.enterpriseProfile.phone">
+        prop="loginInfo.individualProfile.phone"
+        v-model="form.loginInfo.individualProfile.phone">
       </form-input-item>
 
       <form-input-item
         label="电子邮箱"
-        prop="loginInfo.enterpriseProfile.email"
-        v-model="form.loginInfo.enterpriseProfile.email">
+        prop="loginInfo.individualProfile.email"
+        v-model="form.loginInfo.individualProfile.email">
       </form-input-item>
-
-
-      <form-input-item
-        label="企业简介"
-        prop="loginInfo.enterpriseProfile.description"
-        v-model="form.loginInfo.enterpriseProfile.description">
-      </form-input-item>
-
-      <!--<form-input-item-->
-        <!--label="企业照片"-->
-        <!--prop="loginInfo.enterpriseProfile.image"-->
-        <!--v-model="form.loginInfo.enterpriseProfile.image">-->
-      <!--</form-input-item>-->
-      <el-upload
-        ref="imageUpload"
-        :action="uploadAction"
-        :on-remove="handleImagesRemove"
-        :on-success="handleImagesSuccess"
-        :on-preview="handleImagesPreview"
-        :file-list="enterpriseImages"
-        :auto-upload="false">
-        <el-button slot="trigger" size="small" type="primary">添加企业照片文件</el-button>
-        <el-button style="margin-left: 10px;" size="small" type="success" @click="submitImagesUpload">上传到服务器</el-button>
-        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件</div>
-      </el-upload>
 
       <el-form-item
         label="证件类型"
-        prop="loginInfo.enterpriseProfile.subIndustryEntityId">
+        prop="loginInfo.individualProfile.subIndustryEntityId">
         <el-select
-          v-model="form.loginInfo.enterpriseProfile.credentialsType"
+          v-model="form.loginInfo.individualProfile.credentialsType"
           placeholder="请选择证件类型">
           <el-option
             v-for="item in credentialsTypes"
@@ -137,13 +129,13 @@
 
       <form-input-item
         label="证件编码"
-        prop="loginInfo.enterpriseProfile.credentialsCode"
-        v-model="form.loginInfo.enterpriseProfile.credentialsCode">
+        prop="loginInfo.individualProfile.credentialsCode"
+        v-model="form.loginInfo.individualProfile.credentialsCode">
       </form-input-item>
       <!--<form-input-item-->
-        <!--label="证件照片"-->
-        <!--prop="loginInfo.enterpriseProfile.credentialsImg"-->
-        <!--v-model="form.loginInfo.enterpriseProfile.credentialsImg">-->
+      <!--label="证件照片"-->
+      <!--prop="loginInfo.individualProfile.credentialsImg"-->
+      <!--v-model="form.loginInfo.individualProfile.credentialsImg">-->
       <!--</form-input-item>-->
       <el-upload
         ref="credentialsUpload"
@@ -159,15 +151,15 @@
       </el-upload>
 
       <form-input-item
-        label="企业地址"
-        prop="loginInfo.enterpriseProfile.address"
-        v-model="form.loginInfo.enterpriseProfile.address">
+        label="居住地址"
+        prop="loginInfo.individualProfile.address"
+        v-model="form.loginInfo.individualProfile.address">
       </form-input-item>
 
       <form-input-item
         label="邮寄地址"
-        prop="loginInfo.enterpriseProfile.postAddress"
-        v-model="form.loginInfo.enterpriseProfile.postAddress">
+        prop="loginInfo.individualProfile.postAddress"
+        v-model="form.loginInfo.individualProfile.postAddress">
       </form-input-item>
 
       <el-button
@@ -182,7 +174,6 @@
       <img width="100%" :src="dialogImageUrl" alt="">
     </el-dialog>
   </div>
-
 </template>
 
 <script>
@@ -195,22 +186,9 @@
   import FormInputItem from '../common/item/FormInputItem'
 
   import $profile from '../../api/profile'
+
   export default {
-    name: "enterprise-register",
-    props: {
-      industryCode:{
-        type: String,
-        default: null
-      },
-      parentId: {
-        type: Number,
-        default: null
-      },
-      level:{
-        type: String,
-        default: 'SECOND'
-      }
-    },
+    name: "individual-register",
     components:{
       FormInputItem
     },
@@ -218,7 +196,7 @@
       industryEnumsInit(){
         var self = this;
 
-        $industry.getList({industryType:'ENTERPRISE'}).then(({data})=>{
+        $industry.getList({industryType:'INDIVIDUAL'}).then(({data})=>{
             if(data && data.data){
               self.industryEnums = data.data;
               console.log(self.industryEnums);
@@ -261,13 +239,9 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             debugger;
-            self.form.loginInfo.enterpriseProfile.images = [];
-            self.form.loginInfo.enterpriseProfile.credentialsImages = [];
-            self.enterpriseImages.forEach( item => {
-              self.form.loginInfo.enterpriseProfile.images.push({id: item.id});
-            })
+            self.form.loginInfo.individualProfile.credentialsImages = [];
             self.credentialsImages.forEach( item => {
-              self.form.loginInfo.enterpriseProfile.credentialsImages.push({id: item.id});
+              self.form.loginInfo.individualProfile.credentialsImages.push({id: item.id});
             })
             console.log(self.form);
             $user.register(self.form.loginInfo).then(
@@ -361,18 +335,14 @@
             role:{
               id:null
             },
-            profileType:"ENTERPRISE",
-            enterpriseProfile:{
-              enterpriseName:"",
-              representative:"",
+            profileType:"INDIVIDUAL",
+            individualProfile:{
+              name:"",
+              gender:"",
               subIndustryEntity:{
                 id:null
               },
-              images:[],
-              description:"",
-              image:"",
               doPass1:"",
-              doPass2:"",
               credentialsType:"",
               credentialsCode:"",
               credentialsImages:[],
@@ -400,16 +370,28 @@
           'loginInfo.password': [
             { required: true, message: '请输入密码', trigger: 'blur' }
           ],
-          'loginInfo.enterpriseProfile.telephone':[
+          'loginInfo.individualProfile.telephone':[
             { required: true, message: '请输入手机号', trigger: 'blur' }
           ],
-          'loginInfo.enterpriseProfile.email': [
+          'loginInfo.individualProfile.email': [
             { required: true, message: '请输入电子邮箱', trigger: 'blur' }
           ]
         },
         industryEnums:[],
         roleEnums:[],
         subIndustryEntities:[],
+        genderEnums:[
+          {
+            name:"男",
+            code:"MALE",
+            description:"男性"
+          },
+          {
+            name:"女",
+            code:"FEMALE",
+            description:"女性"
+          }
+        ],
         credentialsTypes:[
           {
             name:"身份证",
@@ -417,7 +399,6 @@
             description:"身份证"
           }
         ],
-        enterpriseImages:[],
         credentialsImages:[],
         uploadAction: $fileUpload.getFileUploadAction(),
         dialogImageUrl: '',

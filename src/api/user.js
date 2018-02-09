@@ -29,19 +29,16 @@ export default {
     return $axios.post('/register', data);
   },
 
-  /**
-   * Center
-   * */
-  // 中心系统用户列表
-  getListWithCenter(parameters) {
-    return $axios.get('/center/user/list', {
+  getList(parameters, page) {
+    return $axios.get(`/user/list/${page}`, {
       params: parameters
     });
   },
 
-
-  //新增中心用户（需要中心管理员权限）
-  createWithCenter(data) {
-    return $axios.post('/center', data)
+  update(data){
+    return $axios.put("/user", data);
   }
+
+
+
 }

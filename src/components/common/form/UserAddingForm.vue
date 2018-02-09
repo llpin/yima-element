@@ -36,8 +36,8 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="手机" prop="telephone">
-        <el-input v-model="form.telephone"></el-input>
+      <el-form-item label="手机" prop="loginInfo.personProfile.telephone">
+        <el-input v-model="form.loginInfo.personProfile.telephone"></el-input>
       </el-form-item>
 
       <el-button
@@ -52,19 +52,31 @@
 </template>
 
 <script>
-  import $role from '../../api/role'
-  import $user from  '../../api/user'
-  import $industry from  '../../api/industry'
+  import $role from '../../../api/role'
+  import $user from '../../../api/user'
+  import $industry from '../../../api/industry'
 
   export default {
 
-    name: "CenterUserAdding",
-    props: {},
+    name: "UserAddingForm",
+    props: {
+      industryCode:{
+        type: String,
+        default: null
+      },
+      parentId: {
+        type: Number,
+        default: null
+      },
+      level:{
+        type: String,
+        default: 'SECOND'
+      }
+    },
     methods: {
       industryEnumsInit(){
         var self = this;
-
-        $industry.getList({industryType: 'CENTER'}).then(({data})=>{
+        $industry.getList({code: self.strCode}).then(({data})=>{
             if(data && data.data){
               self.industryEnums = data.data;
               console.log(self.industryEnums);
@@ -75,8 +87,8 @@
       roleEnumsInit(entityId){
         var self = this;
         var prams = {
-          industryEntityId: entityId,
-          level:'SECOND'
+          'industryEntity.id': entityId,
+          level:self.strLevel
         }
         $role.getList(prams).then(({data})=>{
             if(data && data.data){
@@ -110,7 +122,8 @@
     },
     data() {
       return {
-
+        strCode: this.industryCode,
+        strLevel: this.level,
         form:{
           loginInfo:{
             username:"",
@@ -121,9 +134,11 @@
             role:{
               id:null
             },
-            enterpriseProfile:{
+            personProfile:{
               id:null
-            }
+            },
+            profileType:"PERSON",
+            parentId:-1
           },
         },
         rules:{
@@ -137,10 +152,12 @@
             { required: true, message: '请输入账户类型', trigger: 'blur' }
           ],
           'loginInfo.username': [
-            { required: true, message: '请输用户名', trigger: 'blur' }
+            { required: true, message: '请输用户名', trigger: 'blur' },
+            { min: 3, max: 32, message: "长度在 3 到 32 个字符", trigger: "blur" }
           ],
           'loginInfo.password': [
-            { required: true, message: '请输入密码', trigger: 'blur' }
+            { required: true, message: '请输入密码', trigger: 'blur' },
+            { min: 3, max: 32, message: "长度在 3 到 32 个字符", trigger: "blur" }
           ]
         },
         industryEnums:[],
@@ -149,6 +166,8 @@
     },
     mounted(){
       this.industryEnumsInit();
+
+      this.form.loginInfo.parentId = this.parentId;
     }
   }
 </script>

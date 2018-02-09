@@ -1,12 +1,11 @@
 import axios from 'axios'
-
 // axios.defaults.baseURL = "/api"
 // axios.defaults.withCredentials = true
 
-import $profile from '../api/profile'
-
+import $profile from './profile'
 const $axios = axios.create({
-  baseURL: "/api",
+  // baseURL: process.env.API_HOST,
+  baseURL: $profile.getApiHost(),
   withCredentials: true
 })
 

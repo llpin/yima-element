@@ -36,11 +36,11 @@ export default {
       rules: {
         username: [
           { required: true, message: "请输入用户名", trigger: "blur" },
-          { min: 3, max: 12, message: "长度在 3 到 12 个字符", trigger: "blur" }
+          { min: 3, max: 32, message: "长度在 3 到 32 个字符", trigger: "blur" }
         ],
         password: [
           { required: true, message: "请输入密码", trigger: "blur" },
-          { min: 3, max: 12, message: "长度在 3 到 12 个字符", trigger: "blur" }
+          { min: 3, max: 32, message: "长度在 3 到 32 个字符", trigger: "blur" }
         ]
       },
       industryInfo:this.$store.getters.industryInfo,
@@ -76,10 +76,8 @@ export default {
           console.log("login....", data);
           self.$message(data.message);
           if (data.code === HTTP_RESPONSE_SUCCESS) {
-            console.log("login ok");
-            console.log(data.loginInfo);
+            self.$store.commit('loginInfoSet', data.loginInfo);
             $profile.setLoginInfo(data.loginInfo);
-            console.log("redirection", data.redirection);
             self.$router.push(data.redirection);
           }
         });

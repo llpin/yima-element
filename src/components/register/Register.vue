@@ -25,7 +25,7 @@
         this.$router.push('/enterprise/register')
       },
       personRegister(){
-        this.$router.push('/person/register')
+        this.$router.push('/individual/register')
       }
     }
   }

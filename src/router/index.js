@@ -7,20 +7,29 @@ import Index from '../components/Index'
 import Login from '../components/Login'
 import Register from '../components/register/Register'
 import EnterpriseRegister from '../components/register/EnterpriseRegister'
-import PersonRegister from  '../components/register/PersonRegister'
+import IndividualRegister from '../components/register/IndividualRegister'
 
-import CenterHome from '../components/CenterHome'
-import SellerHome from '../components/SellerHome'
-import FactoryHome from '../components/FactoryHome'
-import LawHome from '../components/LawHome'
-import NotarizationHome from '../components/NotarizationHome'
+//Basic
+import CenterBasicHome from '../components/center/CenterBasicHome'
+import SellerBasicHome from '../components/seller/SellerBasicHome'
+import FactoryBasicHome from '../components/factory/FactoryBasicHome'
+import LawBasicHome from '../components/law/LawBasicHome'
+import NotarizationBasicHome from '../components/notarization/NotarizationBasicHome'
 import CustomerHome from '../components/CustomerHome'
+
+//Admin
+import CenterAdminHome from '../components/center/CenterAdminHome'
+import SellerAdminHome from '../components/seller/SellerAdminHome'
+import FactoryAdminHome from '../components/factory/FactoryAdminHome'
+import LawAdminHome from '../components/law/LawAdminHome'
+import NotarizationAdminHome from '../components/notarization/NotarizationAdminHome'
 
 
 //center home 路由
-import CenterUserView from '../components/center/CenterUserView'
-import CenterRoleView from '../components/center/CenterRoleView'
-import CenterUserAdding from '../components/center/CenterUserAdding'
+import UserView from '../components/common/view/UserView'
+import RoleView from '../components/common/view/RoleView'
+import UserAddingView from '../components/common/view/UserAddingView'
+import CenterAuditView from '../components/center/CenterAuditView'
 
 
 
@@ -49,9 +58,9 @@ var homeView = [
     component: EnterpriseRegister
   },
   {
-    path: '/person/register',
-    name: 'person-register',
-    component: PersonRegister
+    path: '/individual/register',
+    name: 'individual-register',
+    component: IndividualRegister
   }
 ]
 
@@ -67,32 +76,60 @@ var centerView = [
     component: Login
   },
   {
-    path: '/center/home',
-    component: CenterHome,
+    path: '/center/basic/home',
+    component: CenterBasicHome,
     //子路由不加斜杠
     children:[
       {
         path: '',
-        component: CenterUserView
+        component: UserView
       },
       {
         path: 'user',
-        component: CenterUserView
+        component: UserView
       },
       {
         path: 'user/view',
-        name: 'CenterUserView',
-        component: CenterUserView
+        component: UserView
       },
       {
         path: 'user/adding',
-        name: 'CenterUserAdding',
-        component: CenterUserAdding
+        component: UserAddingView
       },
       {
         path: 'role',
-        name: 'CenterRoleView',
-        component: CenterRoleView
+        component: RoleView
+      },
+      {
+        path: 'audit',
+        component: CenterAuditView
+      }
+    ]
+  },
+  {
+    path: '/center/admin/home',
+    component: CenterAdminHome,
+    //子路由不加斜杠
+    children:[
+      {
+        path: '',
+        component: UserView
+      },
+      {
+        path: 'user',
+        component: UserView
+      },
+      {
+        path: 'user/view',
+        component: UserView
+      },
+      {
+        path: 'user/adding',
+        component: UserAddingView
+      },
+      {
+        path: 'role',
+        component: RoleView
       }
     ]
   }
@@ -102,14 +139,63 @@ var sellerView = [
   {
     path: '/seller',
     component: Login
-  }, {
+  },
+  {
     path: '/seller/login',
-    name: 'SellerLogin',
     component: Login
-  }, {
-    path: '/seller/home',
-    name: 'SellerHome',
-    component: SellerHome
+  },
+  {
+    path: '/seller/basic/home',
+    component: SellerBasicHome,
+    children:[
+      {
+        path: '',
+        component: UserView
+      },
+      {
+        path: 'user',
+        component: UserView
+      },
+      {
+        path: 'user/view',
+        component: UserView
+      },
+      {
+        path: 'user/adding',
+        component: UserAddingView
+      },
+      {
+        path: 'role',
+        component: RoleView
+      }
+    ]
+  },
+  {
+    path: '/seller/admin/home',
+    component: SellerAdminHome,
+    //子路由不加斜杠
+    children:[
+      {
+        path: '',
+        component: UserView
+      },
+      {
+        path: 'user',
+        component: UserView
+      },
+      {
+        path: 'user/view',
+        component: UserView
+      },
+      {
+        path: 'user/adding',
+        component: UserAddingView
+      },
+      {
+        path: 'role',
+        component: RoleView
+      }
+    ]
   }
 ];
 
@@ -117,14 +203,59 @@ var factoryView = [
   {
     path: '/factory',
     component: Login
-  }, {
+  },
+  {
     path: '/factory/login',
-    name: 'FactoryLogin',
     component: Login
-  }, {
-    path: '/factory/home',
-    name: 'FactoryHome',
-    component: FactoryHome
+  },
+  {
+    path: '/factory/basic/home',
+    component: FactoryBasicHome,
+    children:[
+      {
+        path: '',
+        component: UserView
+      },
+      {
+        path: 'user',
+        component: UserView
+      },
+      {
+        path: 'user/view',
+        component: UserView
+      },
+      {
+        path: 'user/adding',
+        component: UserAddingView
+      }
+    ]
+  },
+  {
+    path: '/factory/admin/home',
+    component: FactoryAdminHome,
+    //子路由不加斜杠
+    children:[
+      {
+        path: '',
+        component: UserView
+      },
+      {
+        path: 'user',
+        component: UserView
+      },
+      {
+        path: 'user/view',
+        component: UserView
+      },
+      {
+        path: 'user/adding',
+        component: UserAddingView
+      },
+      {
+        path: 'role',
+        component: RoleView
+      }
+    ]
   }
 ];
 
@@ -132,14 +263,59 @@ var lawView = [
   {
     path: '/law',
     component: Login
-  }, {
+  },
+  {
     path: '/law/login',
-    name: 'LawLogin',
     component: Login
-  }, {
-    path: '/law/home',
-    name: 'LawHome',
-    component: LawHome
+  },
+  {
+    path: '/law/basic/home',
+    component: LawBasicHome,
+    children:[
+      {
+        path: '',
+        component: UserView
+      },
+      {
+        path: 'user',
+        component: UserView
+      },
+      {
+        path: 'user/view',
+        component: UserView
+      },
+      {
+        path: 'user/adding',
+        component: UserAddingView
+      }
+    ]
+  },
+  {
+    path: '/law/admin/home',
+    component: LawAdminHome,
+    //子路由不加斜杠
+    children:[
+      {
+        path: '',
+        component: UserView
+      },
+      {
+        path: 'user',
+        component: UserView
+      },
+      {
+        path: 'user/view',
+        component: UserView
+      },
+      {
+        path: 'user/adding',
+        component: UserAddingView
+      },
+      {
+        path: 'role',
+        component: RoleView
+      }
+    ]
   }
 ];
 
@@ -147,14 +323,59 @@ var notarizationView = [
   {
     path: '/notarization',
     component: Login
-  }, {
+  },
+  {
     path: '/notarization/login',
-    name: 'NotarizationLogin',
     component: Login
-  }, {
-    path: '/notarization/home',
-    name: 'NotarizationHome',
-    component: NotarizationHome
+  },
+  {
+    path: '/notarization/basic/home',
+    component: NotarizationBasicHome,
+    children:[
+      {
+        path: '',
+        component: UserView
+      },
+      {
+        path: 'user',
+        component: UserView
+      },
+      {
+        path: 'user/view',
+        component: UserView
+      },
+      {
+        path: 'user/adding',
+        component: UserAddingView
+      }
+    ]
+  },
+  {
+    path: '/notarization/admin/home',
+    component: NotarizationAdminHome,
+    //子路由不加斜杠
+    children:[
+      {
+        path: '',
+        component: UserView
+      },
+      {
+        path: 'user',
+        component: UserView
+      },
+      {
+        path: 'user/view',
+        component: UserView
+      },
+      {
+        path: 'user/adding',
+        component: UserAddingView
+      },
+      {
+        path: 'role',
+        component: RoleView
+      }
+    ]
   }
 ];
 
@@ -162,15 +383,15 @@ var customerView = [
   {
     path: '/customer',
     component: Login
-  }, {
+  },
+  {
     path: '/customer/login',
-    name: 'CustomerLogin',
     component: Login
-  }, {
+  },
+  {
     path: '/customer/home',
-    name: 'CustomerHome',
     component: CustomerHome
-  }
+  },
 ];
 
 var routes = [];

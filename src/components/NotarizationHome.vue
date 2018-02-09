@@ -8,7 +8,7 @@
 import $user from "../api/user";
 import { HTTP_RESPONSE_SUCCESS } from "../api/result-codes";
 export default {
-  name: "SellerHome",
+  name: "NotarizationBasicHome",
   data() {
     return {};
   },

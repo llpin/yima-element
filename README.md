@@ -42,3 +42,6 @@ center:
         permission
         
 props 的type属性 不要用boolean 用Boolean，使用对象写法
+
+##行业：
+Center Factory Seller LawFirm
