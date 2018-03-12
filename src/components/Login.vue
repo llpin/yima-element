@@ -1,7 +1,7 @@
 <template>
   <el-container direction="vertical">
     <el-row>
-      <el-col :span="12" :offset="6">
+      <el-col :span="12" :offset="6" style="margin-top: 120px">
         {{ industryInfo.description }}
         <el-form :model="loginForm" status-icon :rules="rules" ref="loginForm" label-width="100px">
           <el-form-item label="账号" prop="username">

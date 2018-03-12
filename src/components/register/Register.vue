@@ -3,13 +3,18 @@
     <el-col :span="6" :offset="6">
       <register-card
         text="企业"
-        @click="enterpriseRegister"/>
+        @click="organizationRegister"/>
     </el-col>
     <el-col :span="6">
       <register-card
         text="个人"
-        @click="personRegister"/>
+        @click="customerRegister"/>
     </el-col>
+    <!--<el-col :span="4">-->
+      <!--<register-card-->
+        <!--text="律师"-->
+        <!--@click="lawyerRegister"/>-->
+    <!--</el-col>-->
   </div>
 </template>
 
@@ -21,11 +26,19 @@
     },
     name: "Register",
     methods:{
-      enterpriseRegister(){
-        this.$router.push('/enterprise/register')
+      organizationRegister(){
+        this.$store.commit('orgPlatformTypeEnumSet', 'ORGANIZATION');
+        this.$router.push('/register/organization/info');
       },
-      personRegister(){
-        this.$router.push('/individual/register')
+      customerRegister(){
+        this.$store.commit('userPlatformTypeEnumSet', 'INDIVIDUAL');
+        this.$store.commit('userIndividualTypeEnumSet', 'CUSTOMER');
+        this.$router.push('/register/individual/info');
+      },
+      lawyerRegister(){
+        this.$store.commit('userPlatformTypeEnumSet', 'INDIVIDUAL');
+        this.$store.commit('userIndividualTypeEnumSet', 'LAWYER');
+        this.$router.push('/register/lawyer/info');
       }
     }
   }

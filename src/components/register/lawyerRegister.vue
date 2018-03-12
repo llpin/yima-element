@@ -71,11 +71,11 @@
         </el-select>
       </el-form-item>
 
-      <!--<form-input-item-->
+      <!--<productAddingForm-input-item-->
         <!--label="性别"-->
         <!--prop="loginInfo.individualProfile.gender"-->
-        <!--v-model="form.loginInfo.individualProfile.gender">-->
-      <!--</form-input-item>-->
+        <!--v-model="productAddingForm.loginInfo.individualProfile.gender">-->
+      <!--</productAddingForm-input-item>-->
 
       <el-form-item
         label="性别"
@@ -132,11 +132,11 @@
         prop="loginInfo.individualProfile.credentialsCode"
         v-model="form.loginInfo.individualProfile.credentialsCode">
       </form-input-item>
-      <!--<form-input-item-->
+      <!--<productAddingForm-input-item-->
       <!--label="证件照片"-->
       <!--prop="loginInfo.individualProfile.credentialsImg"-->
-      <!--v-model="form.loginInfo.individualProfile.credentialsImg">-->
-      <!--</form-input-item>-->
+      <!--v-model="productAddingForm.loginInfo.individualProfile.credentialsImg">-->
+      <!--</productAddingForm-input-item>-->
       <el-upload
         ref="credentialsUpload"
         :action="uploadAction"
@@ -188,7 +188,7 @@
   import $profile from '../../api/profile'
 
   export default {
-    name: "individual-register",
+    name: "lawyer-register",
     components:{
       FormInputItem
     },
@@ -239,12 +239,12 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             debugger;
-            self.form.loginInfo.individualProfile.credentialsImages = [];
+            self.productAddingForm.loginInfo.individualProfile.credentialsImages = [];
             self.credentialsImages.forEach( item => {
-              self.form.loginInfo.individualProfile.credentialsImages.push({id: item.id});
+              self.productAddingForm.loginInfo.individualProfile.credentialsImages.push({id: item.id});
             })
-            console.log(self.form);
-            $user.register(self.form.loginInfo).then(
+            console.log(self.productAddingForm);
+            $user.register(self.productAddingForm.loginInfo).then(
               ({data})=>{
                 this.$message(data.message);
               }
@@ -325,7 +325,7 @@
     data() {
       return {
 
-        form:{
+        productAddingForm:{
           loginInfo:{
             username:"",
             password:"",

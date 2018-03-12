@@ -30,7 +30,7 @@
 </template>
 
 <script>
-  import import $profile from "../api/profile"
+  import $profile from "../api/profile"
   import $util from "../api/util"
   export default {
     components: {

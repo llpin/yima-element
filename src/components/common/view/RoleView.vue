@@ -82,7 +82,7 @@
       editRole(form){
         this.visible.roleEditing = false;
         console.log("centerrole", form);
-        $role.putDescriptionWithCenter(this.form.id,this.form.description).then(
+        $role.putDescriptionWithCenter(this.productAddingForm.id,this.productAddingForm.description).then(
           ()=>{
             this.getRoles();
           }

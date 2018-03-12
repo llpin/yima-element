@@ -58,7 +58,7 @@
 
   export default {
 
-    name: "UserAddingForm",
+    name: "EmployeeAddingForm",
     props: {
       industryCode:{
         type: String,
@@ -103,7 +103,7 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             console.log(self.from);
-            $user.register(self.form.loginInfo).then(({data})=>{
+            $user.register(self.productAddingForm.loginInfo).then(({data})=>{
               console.log(data);
               this.$message(data.message);
             })
@@ -124,50 +124,54 @@
       return {
         strCode: this.industryCode,
         strLevel: this.level,
-        form:{
-          loginInfo:{
-            username:"",
-            password:"",
-            industryEntity:{
-              id:null
-            },
-            role:{
-              id:null
-            },
-            personProfile:{
-              id:null
-            },
-            profileType:"PERSON",
-            parentId:-1
-          },
+        employeeForm:{
+          employeeTypeId:null,
+          name:null,
+          genderType:null,
+          email:null,
+          telephone:null,
+          phone:null,
+          innerId:null,
+          user:{
+            id:null,
+            username:null,
+            password:null,
+            platformMainTypeEnum:null,
+            enabled:null,
+            auditState:null,
+            parentId:null,
+            auditUserId:null,
+          }
         },
         rules:{
-          telephone: [
+          employeeTypeId: [
             { required: true, message: '请输入手机号', trigger: 'blur' }
           ],
-          'loginInfo.industryEntity.id':[
+          name:[
             { required: true, message: '请输入系统类型', trigger: 'blur' }
           ],
-          'loginInfo.role.id':[
+          genderType:[
             { required: true, message: '请输入账户类型', trigger: 'blur' }
           ],
-          'loginInfo.username': [
-            { required: true, message: '请输用户名', trigger: 'blur' },
-            { min: 3, max: 32, message: "长度在 3 到 32 个字符", trigger: "blur" }
+          email: [
+            { required: true, message: '请输用户名', trigger: 'blur' }
           ],
-          'loginInfo.password': [
-            { required: true, message: '请输入密码', trigger: 'blur' },
-            { min: 3, max: 32, message: "长度在 3 到 32 个字符", trigger: "blur" }
+          telephone: [
+            { required: true, message: '请输入密码', trigger: 'blur' }
+          ],
+          "user.username": [
+            { required: true, message: '请输用户名', trigger: 'blur' }
+          ],
+          "user.password": [
+            { required: true, message: '请输入密码', trigger: 'blur' }
           ]
-        },
-        industryEnums:[],
-        roleEnums:[]
+        }
       }
     },
     mounted(){
       this.industryEnumsInit();
 
-      this.form.loginInfo.parentId = this.parentId;
+      this.productAddingForm.loginInfo.parentId = this.parentId;
     }
   }
 </script>

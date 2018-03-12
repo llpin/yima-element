@@ -32,7 +32,7 @@
     },
     data(){
       return{
-        form:{
+        productAddingForm:{
           name:"",
           description: this.description
         },
@@ -66,7 +66,7 @@
         this.$refs[formName].validate((valid)=>{
           if (valid){
             //验证成功
-            this.$emit('ok', this.form);
+            this.$emit('ok', this.productAddingForm);
           }else {
             //验证失败
             console.log("验证失败");

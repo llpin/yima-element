@@ -3,6 +3,11 @@
   height: 100%;
 }
 
+.h-60 {
+  height: 60%;
+}
+
+
 .w-100 {
   width: 100%;
 }
@@ -19,8 +24,16 @@
   height: 100vh;
 }
 
+.vh-60 {
+  height: 60vh;
+}
+
 .vw-100 {
-  width: 100vh;
+  width: 100vw;
+}
+
+.vw-60 {
+  width: 60vw;
 }
 
 .overflow-auto {
@@ -105,5 +118,22 @@
 .main-container {
   height: 100vh; border: 1px solid #eee
 }
+
+.text-left {
+  text-align: left;
+}
+
+.display-inline{
+  display: inline;
+}
+
+.display-block{
+  display: block;
+}
+
+.display-inline-block{
+  display: inline-block;
+}
+
 
 

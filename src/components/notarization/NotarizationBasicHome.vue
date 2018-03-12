@@ -12,6 +12,8 @@
           <el-menu-item-group>
             <el-menu-item index="/notarization/basic/home/user/view">查询</el-menu-item>
             <el-menu-item index="/notarization/basic/home/user/adding">添加</el-menu-item>
+            <el-menu-item index="/organization/factory_producer/password/view">修改登录密码</el-menu-item>
+            <el-menu-item index="/organization/factory_producer/dopassword/view">修改业务密码</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       </el-menu>

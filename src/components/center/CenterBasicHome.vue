@@ -3,19 +3,24 @@
     <el-aside width="200px">
       <!--使用router 属性-->
       <el-menu
-        default-active="/center/basic/home/user/view"
+        default-active="/organization/center_server/my/view"
         router>
-        <el-submenu index="/center/basic/home/user/view">
+        <el-menu-item index="/organization/center_server/my/view">我的</el-menu-item>
+        <el-submenu index="/organization/center_server/organization/view">
           <template slot="title">
             <span>用户管理</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="/center/basic/home/user/view">查询</el-menu-item>
-            <el-menu-item index="/center/basic/home/user/adding">添加</el-menu-item>
+            <el-menu-item index="/organization/center_server/organization/view">企业</el-menu-item>
+            <el-menu-item index="/organization/center_server/employee/view">职员</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
-        <el-menu-item index="/center/basic/home/role">角色管理</el-menu-item>
-        <el-menu-item index="/center/basic/home/audit">用户审核</el-menu-item>
+        <el-menu-item index="/organization/center_server/order/view">订单</el-menu-item>
+        <el-menu-item index="/organization/center_server/platformtype/view">主类型</el-menu-item>
+        <el-menu-item index="/organization/center_server/organizationtype/view">企业类型</el-menu-item>
+        <el-menu-item index="/organization/center_server/individualtype/view">个人类型</el-menu-item>
+        <el-menu-item index="/organization/center_server/password/view">修改登录密码</el-menu-item>
+        <el-menu-item index="/organization/center_server/dopassword/view">修改业务密码</el-menu-item>
       </el-menu>
     </el-aside>
 

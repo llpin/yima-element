@@ -2,12 +2,12 @@
   <div>
     <el-form-item
       :label="label"
-      :prop="prop"
-      :type="type">
+      :prop="prop">
       <el-input
         :value="value"
         @input="inputHandle"
         :placeholder="placeholder"
+        :type="type"
         >
       </el-input>
     </el-form-item>
@@ -16,7 +16,7 @@
 
 <script>
   export default {
-    name: "form-input-item",
+    name: "productAddingForm-input-item",
     props:[
       'label',
       'prop',

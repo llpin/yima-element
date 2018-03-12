@@ -3,17 +3,20 @@
     <el-aside width="200px">
       <!--使用router 属性-->
       <el-menu
-        default-active="/law/basic/home/user/view"
+        default-active="/organization/law_firm/my/view"
         router>
-        <el-submenu index="/law/basic/home/user/view">
+        <el-menu-item index="/organization/law_firm/my/view">我的</el-menu-item>
+        <el-submenu index="/organization/law_firm/my/view">
           <template slot="title">
             <span>用户管理</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="/law/basic/home/user/view">查询</el-menu-item>
-            <el-menu-item index="/law/basic/home/user/adding">添加</el-menu-item>
+            <el-menu-item index="/organization/law_firm/employee/view">职员</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
+        <el-menu-item index="/organization/law_firm/order/view">订单</el-menu-item>
+        <el-menu-item index="/organization/law_firm/password/view">修改登录密码</el-menu-item>
+        <el-menu-item index="/organization/law_firm/dopassword/view">修改业务密码</el-menu-item>
       </el-menu>
     </el-aside>
 

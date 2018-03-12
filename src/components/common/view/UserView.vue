@@ -18,7 +18,7 @@
   import $profile from '../../../api/profile'
   export default {
     components: {UserTable},
-    name: "UserView",
+    name: "OrganizationView",
     props:{
 
     },
@@ -29,7 +29,7 @@
       getPage(page){
         var self = this;
         var id = $profile.getLoginInfo().id;
-        $user.getList({parentId: id},page - 1).then(
+        $user.getOrganizations({},page - 1).then(
           ({data}) => {
             console.log(data);
             self.users = data.data.content;

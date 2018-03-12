@@ -39,7 +39,7 @@
     },
     data(){
       return{
-        form: this.formData,
+        productAddingForm: this.formData,
         rules:{
           description:[
             {
@@ -62,7 +62,7 @@
         this.$refs[formName].validate((valid)=>{
           if (valid){
             //验证成功
-            this.$emit('ok', this.form);
+            this.$emit('ok', this.productAddingForm);
           }else {
             //验证失败
             console.log("验证失败");
@@ -76,7 +76,7 @@
     //不要把watch 写到 methods里
     watch: {
       formData: function(newVal, oldVal) { // watch it
-        this.form = newVal;
+        this.productAddingForm = newVal;
       }
     }
   }

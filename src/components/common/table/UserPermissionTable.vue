@@ -8,7 +8,7 @@
       <el-table-column align="center"	 label="操作" v-if="isOperationVisible">
         <template slot-scope="scope">
           <!--<el-button @click="remove(scope.row)" type="text" size="small">删除</el-button>-->
-          <el-button @click="disabled(scope.row)" type="text" size="small" v-if="scope.row.enable">禁用</el-button>
+          <!--<el-button @click="disabled(scope.row)" type="text" size="small" v-if="scope.row.enable">禁用</el-button>-->
           <el-button @click="enabled(scope.row)" type="text" size="small" v-else>启用</el-button>
           <el-button @click="edit(scope.row)" type="text" size="small">修改</el-button>
         </template>
