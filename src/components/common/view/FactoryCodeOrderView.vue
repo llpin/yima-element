@@ -51,11 +51,17 @@
       @submit-order="submitOrder"
       @show-code="showCode"/>
 
-    <el-pagination
-      layout="prev, pager, next"
-      :total="orderTotalPages"
-      @current-change="orderPageChangeHandle">
-    </el-pagination>
+    <div class="display-block">
+      <el-pagination
+        layout="prev, pager, next"
+        :page-count="orderTotalPages"
+        @current-change="orderPageChangeHandle">
+      </el-pagination>
+    </div>
+      <!--<el-pagination-->
+        <!--layout="prev, pager, next"-->
+        <!--:total="50">-->
+      <!--</el-pagination>-->
 
     <el-dialog
         width="80%"
@@ -66,11 +72,18 @@
         :data="codeList"
         @download-code="downloadCode"
         />
-      <el-pagination
-        layout="prev, pager, next"
-        :total="codeTotalPages"
-        @current-change="codePageChangeHandle">
-      </el-pagination>
+        <el-pagination
+          layout="prev, pager, next"
+          :page-count="codeTotalPages"
+          @current-change="codePageChangeHandle">
+        </el-pagination>
+
+      <!--<el-pagination-->
+        <!--layout="prev, pager, next"-->
+        <!--:total="50"-->
+        <!--@current-change="codePageChangeHandle">-->
+      <!--</el-pagination>-->
+
       <div slot="footer" class="dialog-footer">
         <el-button
           @click="downloadCodeFile">
@@ -151,6 +164,7 @@
         })
       },
       getCodePage(page, orderId){
+
         var parameters = {
           'order.id': orderId
         }
@@ -200,7 +214,7 @@
         });
       },
       codePageChangeHandle(page){
-        this.getCodePage(page, self.currentOrderId);
+        this.getCodePage(page, this.currentOrderId);
       },
       orderPageChangeHandle(page){
         this.getOrderPage(page)

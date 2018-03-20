@@ -4,7 +4,7 @@
        :contracts="contracts"/>
       <el-pagination
         layout="prev, pager, next"
-        :total="totalPages"
+        :page-count="totalPages"
         @current-change="pageChangeHandle">
       </el-pagination>
     </div>

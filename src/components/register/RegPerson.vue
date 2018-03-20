@@ -125,12 +125,16 @@
         });
       },
       frontImgAvatarSuccess(res, file) {
-        this.personForm.frontIDImage = $profile.getFileHost() + res.data.url;
+        // this.personForm.frontIDImage = $profile.getFileHost() + res.data.url;
+
+        this.personForm.frontIDImage = $file.getDownloadFileSrc(res.data.url);
+
         this.personForm.person.frontIDImageId = res.data.id;
         console.log(res, file);
       },
       backImgAvatarSuccess(res, file) {
-        this.personForm.backIDImage = $profile.getFileHost() + res.data.url;
+        // this.personForm.backIDImage = $profile.getFileHost() + res.data.url;
+        this.personForm.backIDImage = $file.getDownloadFileSrc(res.data.url);
         this.personForm.person.backIDImageId = res.data.id;
         console.log(res, file);
       },

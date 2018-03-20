@@ -96,6 +96,9 @@
           case 'VERIFIED':
             ret="已保真";
             break;
+          case 'FINISHED':
+            ret="已售";
+            break;
           default:
             break;
         }
