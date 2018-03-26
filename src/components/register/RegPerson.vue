@@ -29,8 +29,8 @@
 
       <form-input-item
         label="手机"
-        prop="person.telephone"
-        v-model="personForm.person.telephone"/>
+        prop="person.mobilePhone"
+        v-model="personForm.person.mobilePhone"/>
 
       <form-input-item
         label="居住地址"
@@ -164,8 +164,8 @@
             name: null,
             genderType: null,
             email: null,
+            mobilePhone: null,
             telephone: null,
-            phone: null,
             address: null,
             postAddress: null,
             idNumber: null,
@@ -183,10 +183,10 @@
           'person.email': [
             {required: true, message: '不能为空', trigger: 'blur'}
           ],
-          'person.telephone': [
+          'person.mobilePhone': [
             {required: true, message: '不能为空', trigger: 'blur'}
           ],
-          'person.phone': [
+          'person.telephone': [
             {required: true, message: '不能为空', trigger: 'blur'}
           ],
           'person.address': [

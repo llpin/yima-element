@@ -28,7 +28,7 @@
     methods:{
       organizationRegister(){
         this.$store.commit('orgPlatformTypeEnumSet', 'ORGANIZATION');
-        this.$router.push('/register/organization/info');
+        this.$router.push('/register/organization');
       },
       customerRegister(){
         this.$store.commit('userPlatformTypeEnumSet', 'INDIVIDUAL');

@@ -119,7 +119,7 @@
         addingForm:{
           productId:null,
           count:null,
-          factoryId:$profile.getLoginInfo().organization.id,
+          factoryUserId:$profile.getLoginInfo().user.id,
 
         },
         rules:{

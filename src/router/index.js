@@ -4,8 +4,12 @@ import Router from 'vue-router'
 //Home 程序主入口
 import Index from '../components/Index'
 
+//登录
 import Login from '../components/Login'
+
+//注册
 import Register from '../components/register/Register'
+import OrgRegister from '../components/register/organization/OrganizationRegister'
 
 import UpdatePasswordView from '../components/common/view/UpdatePasswordView'
 import UpdateDoPasswordView from '../components/common/view/UpdateDoPasswordView'
@@ -23,15 +27,6 @@ import CenterBasicHome from '../components/center/CenterBasicHome'
 import SellerBasicHome from '../components/seller/SellerBasicHome'
 import FactoryBasicHome from '../components/factory/FactoryBasicHome'
 import LawBasicHome from '../components/law/LawBasicHome'
-import NotarizationBasicHome from '../components/notarization/NotarizationBasicHome'
-import CustomerHome from '../components/CustomerHome'
-
-//Admin
-import CenterAdminHome from '../components/center/CenterAdminHome'
-import SellerAdminHome from '../components/seller/SellerAdminHome'
-import FactoryAdminHome from '../components/factory/FactoryAdminHome'
-import LawAdminHome from '../components/law/LawAdminHome'
-import NotarizationAdminHome from '../components/notarization/NotarizationAdminHome'
 
 //路由
 import OrganizationView from '../components/common/view/OrganizationView'
@@ -82,6 +77,11 @@ var homeView = [
     path: '/register',
     name: 'register',
     component: Register
+  },
+  {
+    path: '/register/organization',
+    name: 'organization-register',
+    component: OrgRegister
   },
   {
     path: '/register/organization/info',
@@ -293,305 +293,14 @@ var centerView = [
     component: CenterBasicHome,
 
   },
-  // {
-  //   path: '/center/admin/home',
-  //   component: CenterAdminHome,
-  //   //子路由不加斜杠
-  //   children:[
-  //     {
-  //       path: '',
-  //       component: OrganizationView
-  //     },
-  //     {
-  //       path: 'user',
-  //       component: OrganizationView
-  //     },
-  //     {
-  //       path: 'user/view',
-  //       component: OrganizationView
-  //     },
-  //     {
-  //       path: 'user/adding',
-  //       component: UserAddingView
-  //     },
-  //     {
-  //       path: 'role',
-  //       component: RoleView
-  //     }
-  //   ]
-  // }
 ];
-
-// var sellerView = [
-//   {
-//     path: '/seller',
-//     component: Login
-//   },
-//   {
-//     path: '/seller/login',
-//     component: Login
-//   },
-//   {
-//     path: '/seller/basic/home',
-//     component: SellerBasicHome,
-//     // children:[
-//     //   {
-//     //     path: '',
-//     //     component: OrganizationView
-//     //   },
-//     //   {
-//     //     path: 'user',
-//     //     component: OrganizationView
-//     //   },
-//     //   {
-//     //     path: 'user/view',
-//     //     component: OrganizationView
-//     //   },
-//     //   {
-//     //     path: 'user/adding',
-//     //     component: UserAddingView
-//     //   },
-//     //   {
-//     //     path: 'role',
-//     //     component: RoleView
-//     //   }
-//     // ]
-//   },
-//   {
-//     path: '/seller/admin/home',
-//     component: SellerAdminHome,
-//     //子路由不加斜杠
-//     // children:[
-//     //   {
-//     //     path: '',
-//     //     component: OrganizationView
-//     //   },
-//     //   {
-//     //     path: 'user',
-//     //     component: OrganizationView
-//     //   },
-//     //   {
-//     //     path: 'user/view',
-//     //     component: OrganizationView
-//     //   },
-//     //   {
-//     //     path: 'user/adding',
-//     //     component: UserAddingView
-//     //   },
-//     //   {
-//     //     path: 'role',
-//     //     component: RoleView
-//     //   }
-//     // ]
-//   }
-// ];
-//
-// var factoryView = [
-//   {
-//     path: '/factory',
-//     component: Login
-//   },
-//   {
-//     path: '/factory/login',
-//     component: Login
-//   },
-//   {
-//     path: '/factory/basic/home',
-//     component: FactoryBasicHome,
-//     children:[
-//       {
-//         path: '',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user/view',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user/adding',
-//         component: UserAddingView
-//       }
-//     ]
-//   },
-//   {
-//     path: '/factory/admin/home',
-//     component: FactoryAdminHome,
-//     //子路由不加斜杠
-//     children:[
-//       {
-//         path: '',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user/view',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user/adding',
-//         component: UserAddingView
-//       },
-//       {
-//         path: 'role',
-//         component: RoleView
-//       }
-//     ]
-//   }
-// ];
-//
-// var lawView = [
-//   {
-//     path: '/law',
-//     component: Login
-//   },
-//   {
-//     path: '/law/login',
-//     component: Login
-//   },
-//   {
-//     path: '/law/basic/home',
-//     component: LawBasicHome,
-//     children:[
-//       {
-//         path: '',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user/view',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user/adding',
-//         component: UserAddingView
-//       }
-//     ]
-//   },
-//   {
-//     path: '/law/admin/home',
-//     component: LawAdminHome,
-//     //子路由不加斜杠
-//     children:[
-//       {
-//         path: '',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user/view',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user/adding',
-//         component: UserAddingView
-//       },
-//       {
-//         path: 'role',
-//         component: RoleView
-//       }
-//     ]
-//   }
-// ];
-//
-// var notarizationView = [
-//   {
-//     path: '/notarization',
-//     component: Login
-//   },
-//   {
-//     path: '/notarization/login',
-//     component: Login
-//   },
-//   {
-//     path: '/notarization/basic/home',
-//     component: NotarizationBasicHome,
-//     children:[
-//       {
-//         path: '',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user/view',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user/adding',
-//         component: UserAddingView
-//       }
-//     ]
-//   },
-//   {
-//     path: '/notarization/admin/home',
-//     component: NotarizationAdminHome,
-//     //子路由不加斜杠
-//     children:[
-//       {
-//         path: '',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user/view',
-//         component: OrganizationView
-//       },
-//       {
-//         path: 'user/adding',
-//         component: UserAddingView
-//       },
-//       {
-//         path: 'role',
-//         component: RoleView
-//       }
-//     ]
-//   }
-// ];
-//
-// var customerView = [
-//   {
-//     path: '/customer',
-//     component: Login
-//   },
-//   {
-//     path: '/customer/login',
-//     component: Login
-//   },
-//   {
-//     path: '/customer/home',
-//     component: CustomerHome
-//   },
-// ];
 
 var routes = [];
 routes = routes.concat(
   homeView,
   organization,
   employee,
-  centerView,
-  // sellerView,
-// factoryView,
-// lawView,
-// customerView,
-// notarizationView
+  centerView
   );
 
 export default new Router({

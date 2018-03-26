@@ -3,8 +3,8 @@
       <el-form :model="phoneForm" :rules="rules" ref="phoneForm" label-width="100px">
         <form-input-item
           label="手机号"
-          prop="telephone"
-          v-model="phoneForm.telephone"/>
+          prop="mobilePhone"
+          v-model="phoneForm.mobilePhone"/>
 
         <form-input-item
           label="验证码"
@@ -40,7 +40,7 @@
 <script>
   import FormInputItem from '../common/item/FormInputItem'
   export default {
-    name: "telephone-verify",
+    name: "mobile-phone-verify",
     props:{
       last: {
         type: Boolean,
@@ -58,11 +58,11 @@
     data(){
       return {
         phoneForm:{
-          telephone:"",
+          mobilePhone:"",
           verifyCode:""
         },
         rules: {
-          'telephone': [
+          'mobilePhone': [
             {required: true, message: '不能为空', trigger: 'blur'}
           ],
           'verifyCode': [
@@ -83,11 +83,11 @@
         });
       },
       getVerifyCode(){
-        var telephone = this.phoneForm.telephone;
-        if(telephone == null || telephone.length <= 0){
+        var mobilePhone = this.phoneForm.mobilePhone;
+        if(mobilePhone == null || mobilePhone.length <= 0){
           this.$message("手机号不能为空");
         }
-        this.$emit('verify-code', telephone);
+        this.$emit('verify-code', mobilePhone);
       }
     }
   }

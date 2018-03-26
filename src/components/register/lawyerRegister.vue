@@ -96,14 +96,14 @@
 
       <form-input-item
         label="手机号"
-        prop="loginInfo.individualProfile.telephone"
-        v-model="form.loginInfo.individualProfile.telephone">
+        prop="loginInfo.individualProfile.mobilePhone"
+        v-model="form.loginInfo.individualProfile.mobilePhone">
       </form-input-item>
 
       <form-input-item
         label="电话"
-        prop="loginInfo.individualProfile.phone"
-        v-model="form.loginInfo.individualProfile.phone">
+        prop="loginInfo.individualProfile.telephone"
+        v-model="form.loginInfo.individualProfile.telephone">
       </form-input-item>
 
       <form-input-item
@@ -347,8 +347,8 @@
               credentialsCode:"",
               credentialsImages:[],
               email:"",
+              mobilePhone:"",
               telephone:"",
-              phone:"",
               address:"",
               postAddress:"",
               regionCode:"",
@@ -370,7 +370,7 @@
           'loginInfo.password': [
             { required: true, message: '请输入密码', trigger: 'blur' }
           ],
-          'loginInfo.individualProfile.telephone':[
+          'loginInfo.individualProfile.mobilePhone':[
             { required: true, message: '请输入手机号', trigger: 'blur' }
           ],
           'loginInfo.individualProfile.email': [

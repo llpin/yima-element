@@ -2,7 +2,7 @@
   <div style="margin-top: 120px">
     <el-col :span="8" :offset="8">
       <h3 class="text-left">绑定手机号</h3>
-      <telephone-verify
+      <mobile-phone-verify
         :last="true"
         @submit="submitForm"
         @verify-code="getVerifyCode"
@@ -12,18 +12,18 @@
 </template>
 
 <script>
-  import TelephoneVerify from './TelephoneVerify'
+  import MobilePhoneVerify from './MobilePhoneVerify'
 
   import $user from '../../api/user'
   export default {
     name: "customer-verify",
     components:{
-      TelephoneVerify
+      MobilePhoneVerify
     },
     data(){
       return{
         verify:{
-          telephone:"",
+          mobilePhone:"",
           verifyCode:""
         }
       }
@@ -33,9 +33,9 @@
         var self = this;
         self.verify = data;
 
-        self.$store.commit("indTelephoneSet", self.verify.telephone);
+        self.$store.commit("indTelephoneSet", self.verify.mobilePhone);
 
-        $user.verifyCode(self.verify.telephone, self.verify.verifyCode).then(({data})=>{
+        $user.verifyCode(self.verify.mobilePhone, self.verify.verifyCode).then(({data})=>{
           if(data.code !== "200"){
             self.$message("验证码错误");
           }else {
@@ -46,9 +46,9 @@
           }
         })
       },
-      getVerifyCode(telephone){
+      getVerifyCode(mobilePhone){
         var self = this;
-        $user.getVerifyCode(telephone).then( ({data}) => {
+        $user.getVerifyCode(mobilePhone).then( ({data}) => {
             if(data.code === "200") {
               self.$message("短信已发送成功");
             }else {

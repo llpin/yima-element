@@ -18,12 +18,12 @@
       </el-table-column>
       <el-table-column
         align="center"
-        prop="telephone"
+        prop="mobilePhone"
         label="手机">
       </el-table-column>
       <el-table-column
         align="center"
-        prop="phone"
+        prop="telephone"
         label="电话">
       </el-table-column>
       <el-table-column
@@ -101,7 +101,7 @@
           {{repForm.email}}
         </el-form-item>
         <el-form-item label="手机" >
-          {{repForm.telephone}}
+          {{repForm.mobilePhone}}
         </el-form-item>
         <el-form-item label="地址" >
           {{repForm.address}}

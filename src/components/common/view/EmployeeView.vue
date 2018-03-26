@@ -50,13 +50,13 @@
 
         <form-input-item
           label="联系电话"
-          prop="phone"
-          v-model="addingForm.phone"/>
+          prop="telephone"
+          v-model="addingForm.telephone"/>
 
         <form-input-item
           label="联系人手机"
-          prop="telephone"
-          v-model="addingForm.telephone"/>
+          prop="mobilePhone"
+          v-model="addingForm.mobilePhone"/>
 
         <form-input-item
           label="邮箱"
@@ -199,8 +199,8 @@
           name:null,
           genderType:null,
           email:null,
+          mobilePhone:null,
           telephone:null,
-          phone:null,
           innerId:null,
           user:{
             // id:null,
@@ -224,10 +224,13 @@
           'user.password': [
             { required: true, message: '不能为空', trigger: 'blur' }
           ],
+          'user.doPassword': [
+            { required: true, message: '不能为空', trigger: 'blur' }
+          ],
           'email': [
             { required: true, message: '不能为空', trigger: 'blur' }
           ],
-          'telephone': [
+          'mobilePhone': [
             { required: true, message: '不能为空', trigger: 'blur' }
           ]
         },

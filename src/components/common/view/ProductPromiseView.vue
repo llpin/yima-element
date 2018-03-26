@@ -13,9 +13,9 @@
           label-width="100px">
 
           <form-input-item
-            label="名称"
-            prop="name"
-            v-model="addingForm.name">
+            label="标题"
+            prop="title"
+            v-model="addingForm.title">
           </form-input-item>
           <form-input-item
             label="主题"
@@ -62,7 +62,7 @@
         promiseList:[],
         addingForm:{
           theme:"",
-          name:"",
+          title:"",
           content:"",
           organizationId:$profile.getLoginInfo().organization.id
         },
@@ -71,8 +71,8 @@
           'theme':[
             { required: true, message: '请输入主题', trigger: 'blur' }
           ],
-          'name':[
-            { required: true, message: '请输入名称', trigger: 'blur' }
+          'title':[
+            { required: true, message: '请输入标题', trigger: 'blur' }
           ],
           'content': [
             { required: true, message: '请输内容', trigger: 'blur' }
@@ -88,6 +88,7 @@
           organizationId: orgId
         }
         $product.getPromiseList(params).then(({data})=>{
+          self.$message(data.message);
           self.promiseList = data.data;
         })
       },
@@ -96,7 +97,8 @@
         var self = this;
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            $product.addPromise(self.addingForm).then(()=>{
+            $product.addPromise(self.addingForm).then(({data})=>{
+              self.$message(data.message);
               self.getPromiseList();
             })
           } else {

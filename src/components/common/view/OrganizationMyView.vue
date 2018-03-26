@@ -19,10 +19,10 @@
               {{model.organization.email}}
             </el-form-item>
             <el-form-item label="联系手机:">
-              {{model.organization.telephone}}
+              {{model.organization.mobilePhone}}
             </el-form-item>
             <el-form-item label="联系电话:">
-              {{model.organization.phone}}
+              {{model.organization.telephone}}
             </el-form-item>
             <el-form-item label="地址:">
               {{model.organization.address}}

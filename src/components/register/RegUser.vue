@@ -37,10 +37,6 @@
         @click="submitForm('userForm')">
         下一步
       </el-button>
-      <el-button
-        @click="back">
-        返回
-      </el-button>
     </div>
   </div>
 </template>
@@ -91,6 +87,9 @@
             { required: true, message: '请输用户名', trigger: 'blur' }
           ],
           'password': [
+            { required: true, message: '请输入密码', trigger: 'blur' }
+          ],
+          'doPassword': [
             { required: true, message: '请输入密码', trigger: 'blur' }
           ]
         },

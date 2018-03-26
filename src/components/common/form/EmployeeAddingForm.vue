@@ -36,8 +36,8 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="手机" prop="loginInfo.personProfile.telephone">
-        <el-input v-model="form.loginInfo.personProfile.telephone"></el-input>
+      <el-form-item label="手机" prop="loginInfo.personProfile.mobilePhone">
+        <el-input v-model="form.loginInfo.personProfile.mobilePhone"></el-input>
       </el-form-item>
 
       <el-button
@@ -129,8 +129,8 @@
           name:null,
           genderType:null,
           email:null,
+          mobilePhone:null,
           telephone:null,
-          phone:null,
           innerId:null,
           user:{
             id:null,
@@ -156,7 +156,7 @@
           email: [
             { required: true, message: '请输用户名', trigger: 'blur' }
           ],
-          telephone: [
+          mobilePhone: [
             { required: true, message: '请输入密码', trigger: 'blur' }
           ],
           "user.username": [

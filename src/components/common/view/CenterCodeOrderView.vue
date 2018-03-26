@@ -22,14 +22,14 @@
         <el-form-item label="律所">
           <el-select
             class="display-inline"
-            prop="lawfirmId"
-            v-model="lawyerDialogForm.lawfirmId"
+            prop="lawfirmUserId"
+            v-model="lawyerDialogForm.lawfirmUserId"
             placeholder="请选择律所">
             <el-option
               v-for="item in lawfirmList"
               :key="item.id"
               :label="item.name"
-              :value="item.id">
+              :value="item.user.id">
             </el-option>
           </el-select>
         </el-form-item>
@@ -66,11 +66,11 @@
         orders:[],
         lawfirmList:[],
         lawyerDialogForm:{
-          lawfirmId: null
+          lawfirmUserId: null
         },
         lawyerDialogVisible: false,
         rules:{
-          'lawfirmId': [
+          'lawfirmUserId': [
             { required: true, message: '不能为空', trigger: 'blur' }
           ]
         },
@@ -108,7 +108,7 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             $order.transmitOrder(self.currentOrder.id,
-              self.lawyerDialogForm.lawfirmId).then(({ data }) => {
+              self.lawyerDialogForm.lawfirmUserId).then(({ data }) => {
               console.log(data);
               var index = self.orders.indexOf(self.currentOrder);
               $order.getOrder(data.orderId).then( ({data})=>{
