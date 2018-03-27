@@ -14,9 +14,9 @@ import OrgRegister from '../components/register/organization/OrganizationRegiste
 import UpdatePasswordView from '../components/common/view/UpdatePasswordView'
 import UpdateDoPasswordView from '../components/common/view/UpdateDoPasswordView'
 //企业注册
-import OrgRegUser from '../components/register/OrgRegUser'
-import OrgRegInfo from '../components/register/OrgRegInfo'
-import OrgRegRep from '../components/register/OrgRegRep'
+import OrgRegUser from '../components/register/organization/OrgRegUser'
+import OrgRegInfo from '../components/register/organization/OrgRegInfo'
+import OrgRegRep from '../components/register/organization/OrgRegRep'
 
 import CustomerInfo from '../components/register/CustomerInfo'
 import CustomerUser from '../components/register/CustomerUser'

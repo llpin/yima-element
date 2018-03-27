@@ -18,7 +18,7 @@
   import $profile from '../../api/profile'
 
   import FormInputItem from '../common/item/FormInputItem'
-  import RegPerson from './RegPerson'
+  import RegPerson from './RegIndividual'
 
   export default {
     name: "customer-info",

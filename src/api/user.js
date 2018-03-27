@@ -1,10 +1,7 @@
 import { $axios } from './axios'
 /**
  * 接口模块：
- * Main：Main
- * User： CenterUser
- * Role：CenterRole
- * Permission：CenterPermission
+ * 用户 注册,登录,详情,修改等
  * */
 export default {
   name: "$user",
@@ -22,7 +19,6 @@ export default {
   registerIndividual(data){
     return $axios.post('/register/individual', data);
   },
-
 
 
   //用户登录

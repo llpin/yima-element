@@ -96,6 +96,19 @@
   margin-bottom: 12px;
 }
 
+.mt-12{
+  margin-top: 12px;
+}
+
+.mt-24{
+  margin-top: 24px;
+}
+
+.my-24 {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
 .p-12 {
   padding: 12px;
 }
